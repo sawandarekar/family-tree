@@ -229,13 +229,17 @@
 
 				//  return d3.linkVertical()
 				// .x(function(s) { return s.x; })
-				// .y(function(d) { return d.y; });
+				// .y(function(d) { return d.x; });
 
+				// path = `M ${s.x} ${s.y}
+				// 		C ${(s.x + d.x) /2} ${s.y},
+				// 			${(s.x + d.x) /2} ${d.y},
+				// 			${d.x} ${d.y}`
+				//
 				path = `M ${s.x} ${s.y}
-            C ${(s.x + d.x) /2} ${s.y},
-              ${(s.x + d.x) /2} ${d.y},
+            C ${(s.x + d.x) /2} ${d.y},
+              ${(s.x + d.x) /2} ${s.y},
               ${d.x} ${d.y}`
-
 				return path;
 			}
 
