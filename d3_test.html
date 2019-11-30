@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+<style>
+
+</style>
+
+<body>
+<!-- load the d3.js library -->
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<div id="tree-container"></div>
+<script>
+
+// curve from Top
+/*
+var canvas = d3.select("body").append("svg").attr("width", 500).attr("height",500);
+var diagonal = d3.svg.diagonal().source({x:10, y:10}).target({x:300, y:300});
+canvas.append("path").attr("fill", "none").attr("stroke", "black").attr("d",diagonal);
+*/
+
+var canvas = d3.select("body").append("svg")
+							.attr("width", 500)
+							.attr("height",500)
+							.append("g")
+							.attr("transform","translate(50,50)");
+var tree = d3.layout.tree()
+						.size([400,400]);
+d3.json("mydata.json", function(data){
+	var nodes = tree.nodes(data);
+	console.log(nodes);
+});
+
+
+</script>
+
+</body>
