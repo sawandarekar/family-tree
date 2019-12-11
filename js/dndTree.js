@@ -27,7 +27,123 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
 // Get JSON data
-treeJSON = d3.json("js/flare.json", function(error, treeData) {
+treeJSON = d3.json("flare.json", function(error, treeData) {
+
+		treeData = {
+			"name": "darekar",
+			"parent": "null",
+			"children": [{
+					"name": "Mhapaji",
+					"parent": "Top Level",
+					"children": [{
+							"name": "Tatyaba",
+							"parent": "Level 2: A",
+							"children": [{
+									"name": "Dharmu",
+									"parent": "Level 2: A",
+									"children": [{
+											"name": "Hanmant",
+											"parent": "Level 2: A",
+											"children": [{
+													"name": "Sagar",
+													"parent": "Level 2: A"
+												},{
+														"name": "Sarika",
+														"parent": "Level 2: A"
+													},{
+															"name": "Gauri",
+															"parent": "Level 2: A"
+														},{
+														"name": "Suraj",
+														"parent": "Level 2: A"
+													},{
+													"name": "Supriya",
+													"parent": "Level 2: A"
+												}]
+										}]
+								},{
+										"name": "Bhausaheb",
+										"parent": "Level 2: A",
+										"children": [{
+												"name": "Vilas",
+												"parent": "Level 2: A",
+												"children": [{
+														"name": "Manisha",
+														"parent": "Level 2: A"
+													},{
+															"name": "Rahul",
+															"topen-name":"navnath",
+															"parent": "Level 2: A"
+														}]
+											},
+											{
+													"name": "Prakash",
+													"parent": "Level 2: A",
+													"children": [{
+															"name": "Manoj",
+															"topen-name":"Barama",
+															"parent": "Level 2: A"
+														},{
+																"name": "Rajesh",
+																"parent": "Level 2: A"
+															}]
+												},
+												{
+														"name": "Dhaneswar",
+														"parent": "Level 2: A",
+														"children": [{
+																"name": "Vinod",
+																"topen-name":"sonya",
+																"parent": "Level 2: A"
+															},{
+																	"name": "Manjushri",
+																	"topen-name":"Gauri",
+																	"parent": "Level 2: A"
+																}]
+													}]
+									},{
+											"name": "Jijaba",
+											"parent": "Level 2: A",
+											"children": [{
+													"name": "Mahadev",
+													"parent": "Level 2: A",
+													"children": [{
+															"name": "Sawan",
+															"parent": "Level 2: A"
+														},{
+																"name": "Ashwini",
+																"parent": "Level 2: A"
+															},{
+																	"name": "Asha",
+																	"parent": "Level 2: A"
+																}]
+												},
+												{
+														"name": "Shivaji",
+														"parent": "Level 2: A",
+														"children": [{
+																"name": "Tejswi",
+																"parent": "Level 2: A"
+															},{
+																	"name": "Ankita",
+																	"parent": "Level 2: A"
+																}]
+													},
+													{
+															"name": "Tanaji",
+															"parent": "Level 2: A",
+															"children": [{
+																	"name": "Suraj",
+																	"parent": "Level 2: A"
+																},{
+																		"name": "Suyog",
+																		"parent": "Level 2: A"
+																	}]
+														}]
+										}]
+					}]
+				}]
+		};
 
     // Calculate total nodes, max label length
     var totalNodes = 0;
@@ -380,7 +496,7 @@ treeJSON = d3.json("js/flare.json", function(error, treeData) {
             }
         };
         childCount(0, root);
-        var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line  
+        var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line
         tree = tree.size([newHeight, viewerWidth]);
 
         // Compute the new tree layout.
@@ -540,7 +656,7 @@ treeJSON = d3.json("js/flare.json", function(error, treeData) {
     var svgGroup = baseSvg.append("g");
 
     // Define the root
-    root = treeData;
+    var root = treeData;
     root.x0 = viewerHeight / 2;
     root.y0 = 0;
 
