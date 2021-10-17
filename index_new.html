@@ -233,11 +233,15 @@
 				//  return d3.linkVertical()
 				// .x(function(s) { return s.x; })
 				// .y(function(d) { return d.x; });
+				path = "M" + d.x + "," + d.y
+          + "C" + d.x + "," + (s.y + d.y) / 2
+          + " " + s.x + "," + (d.y + s.y) / 2
+          + " " + s.x + "," + s.y;
 
-				path = `M ${s.x} ${s.y}
-            C ${(s.x + d.x) /2} ${d.y},
-              ${(s.x + d.x) /2} ${s.y},
-              ${d.x} ${d.y}`
+				// path = `M ${s.x} ${s.y}
+        //     C ${(s.x + d.x) /2} ${d.y},
+        //       ${(s.x + d.x) /2} ${s.y},
+        //       ${d.x} ${d.y}`;
 				return path;
 			}
 
